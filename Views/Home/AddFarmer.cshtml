@@ -1,0 +1,55 @@
+﻿<!--View responsible for the appearence of the add farmer page.-->
+
+<h2>Add a new farmer by filling the fields below and pressing the button "Add". </h2>
+<br />
+<br />
+
+
+<form method="post" action="/Home/CreateF">
+    <style>
+        .form-row label {
+            display: inline-block;
+            width: 120px;
+        }
+
+        .form-row input {
+            display: inline-block;
+            width: 200px;
+            margin-left: 5px;
+        }
+    </style>
+
+    <div class="form-row">
+        <label for="fname">Enter Name:</label>
+        <input type="text" name="fname" />
+    </div>
+    <br />
+    <br />
+    <div class="form-row">
+        <label for="fsurname">Enter Surname:</label>
+        <input type="text" name="fsurname" />
+    </div>
+    <br />
+    <br />
+    <div class="form-row">
+        <label for="fuser">Enter Username:</label>
+        <input type="text" name="fuser" />
+    </div>
+    <br />
+    <br />
+    <div class="form-row">
+        <label for="fpass">Enter Password:</label>
+        <input type="password" name="fpass" />
+    </div>
+    <br />
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Add</button> <button onclick="history.back(); return false;" class="btn btn-primary">Go Back</button>
+    <br />
+    <br />
+
+    @if (ViewBag.ErrorMessage1 != null)
+    {
+        <p style="color:red;"> @ViewBag.ErrorMessage1 </p>
+    }
+</form>

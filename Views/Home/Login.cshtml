@@ -1,0 +1,31 @@
+﻿<!--This view is responsible for the appearence and manipulation of the data that is inserted in the login of the Employee-->
+
+<form method="post">
+    <div class="text-center">
+        <h1>Welcome, please enter your information below:</h1>
+    </div>
+    <br />
+    <br />
+    Username:
+
+    <input type="text" name="usern" />
+    <br />
+    <br />
+    <br />
+
+    Password:
+    <input type="password" name="pass" />
+    <br />
+    <br />
+    <br />
+    <input type="submit" value="Submit" formaction="/Home/ADMHome" class="btn btn-primary" /> <button onclick="history.back(); return false;" class="btn btn-primary">Go Back</button>
+    <br />
+    <br />
+
+    <!--Error message in case the farmer tries to login with worng credentials.-->
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <p style="color:red;"> @ViewBag.ErrorMessage </p>
+    }
+
+</form>

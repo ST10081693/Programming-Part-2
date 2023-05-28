@@ -1,0 +1,45 @@
+﻿<!--View responsible for the appearence of the Add Product Page-->
+
+<h2>Add a new product by filling the fields below and pressing the button add. </h2>
+<br />
+<br />
+
+<form method="post" action="/Home/CreateP">
+    <style>
+        .form-row label {
+            display: inline-block;
+            width: 120px;
+        }
+
+        .form-row input {
+            display: inline-block;
+            width: 200px;
+            margin-left: 5px;
+        }
+    </style>
+
+    <div class="form-row">
+        <label for="fname">Enter product name:</label>
+        <input type="text" name="Pname" />
+    </div>
+    <br />
+    <br />
+    <div class="form-row">
+        <label for="fsurname">Enter product amount:</label>
+        <input type="text" name="Pamount" />
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Add</button> <button onclick="history.back(); return false;" class="btn btn-primary">Go Back</button>
+    <br />
+    <br />
+
+
+    @if (ViewBag.ErrorMessage2 != null)
+    {
+        <p style="color:red;"> @ViewBag.ErrorMessage2 </p>
+    }
+</form>

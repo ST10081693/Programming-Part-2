@@ -1,0 +1,97 @@
+﻿<!--View responsible for the appearence of View Products Page.-->
+
+@using (Html.BeginForm("ViewProducts", "Home", FormMethod.Get))
+{
+    <style>
+        /* Table styles */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .btn:hover {
+                background-color: #0056b3;
+            }
+    </style>
+    <br />
+    <h3> To view the products, just select the name of the farmer, the start date and end date and press "Filter."</h3>
+    <br />
+    <br />
+    <br />
+    <label for="selectedName">Select Name:</label>
+    <select name="selectedName" id="selectedName">
+        @foreach (var name in ViewBag.Names)
+        {
+            <option value="@name">@name</option>
+        }
+    </select>
+
+
+    <label for="startDate">Start Date:</label>
+    <input type="date" name="startDate" id="startDate">
+
+    <label for="endDate">End Date:</label>
+    <input type="date" name="endDate" id="endDate">
+
+    <button type="submit" class="btn">Filter</button>
+
+    <br />
+    <br />
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>User</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.User</td>
+                    <td>@product.Amount</td>
+                    <td>@product.Date</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <button onclick="history.back(); return false;" class="btn">Go Back</button>
+}
